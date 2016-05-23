@@ -12,7 +12,7 @@ link * creaLista(int);
 void creaAdiacenti(link *, int);
 void aggiungiAdiacenza(link *, int, int);
 void stampaLista(link *, int);
-_Bool verificaAdiacente(link *, int, int);
+_Bool verificaAdiacenza(link *, int, int);
 
 int main() {
     setbuf(stdout, NULL);
@@ -89,7 +89,7 @@ void creaAdiacenti(link *A, int dim) {
                 continue;
             }
 
-            if (!verificaAdiacente(A, u, v) || !verificaAdiacente(A, v, u)) {
+            if (!verificaAdiacenza(A, u, v) || !verificaAdiacenza(A, v, u)) {
                 printf("Errore: l'arco gia' esiste. \n ");
                 continue;
             } else {
@@ -101,7 +101,7 @@ void creaAdiacenti(link *A, int dim) {
     }
 }
 
-_Bool verificaAdiacente(link *A, int u, int v) {
+_Bool verificaAdiacenza(link *A, int u, int v) {
     link nodoCorrente = A[u];
     
     while (nodoCorrente->adiacenti != NULL) {
