@@ -30,6 +30,10 @@ int main() {
 
     printf("Inserimento dei nodi adiacenti...  \n");
     creaAdiacenti(A, dim);
+    
+    stampaLista(A, dim);
+    
+    return(EXIT_SUCCESS);
 }
 
 link * creaLista(int dim) {
@@ -52,7 +56,6 @@ link * creaLista(int dim) {
          *      Commento MEMORIA DINAMICA
          *      A[i].nodo = i;  
          */
-        printf("%d - creato \n", i);
     }
 
     return A;
@@ -96,7 +99,6 @@ void creaAdiacenti(link *A, int dim) {
 
         }
     }
-    stampaLista(A, dim);
 }
 
 _Bool verificaAdiacente(link *A, int u, int v) {
