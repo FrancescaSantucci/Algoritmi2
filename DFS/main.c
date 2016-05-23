@@ -39,23 +39,9 @@ int main() {
 link * creaLista(int dim) {
     link *A = calloc(dim, sizeof (link));
 
-    /*
-     * MEMORIA DINAMICA 
-     * Potremmo utilizzare questa chiamata: 
-     *       elemento *A = calloc(dim, sizeof(elemento));
-     * ma si rischia di non avere memoria a sufficenza poiché andiamo ad allocare in memoria dim struct.
-     * Quindi useremmo memoria statica piuttosto che dinamica.
-     * In questo modo, creiamo i nostri elementi al momento dell'occorrenza
-     *  nella memoria dinamica (memoria grande).
-     */
-
     for (int i = 0; i < dim; i++) {
         A[i] = calloc(1, sizeof (elemento));
         A[i]->nodo = i;
-        /*
-         *      Commento MEMORIA DINAMICA
-         *      A[i].nodo = i;  
-         */
     }
 
     return A;
@@ -67,16 +53,9 @@ void creaAdiacenti(link *A, int dim) {
     int u, v;
 
     while (continua) {
-        printf("Vuoi inserire una adiacenza? (s/n) \n");
-        scanf(" %c", &risposta);
+        printf("Vuoi inserire una adiacenza? (s/n) ");
+        while( (risposta = getchar()) == '\n');        
         continua = (risposta == 's') ? 1 : 0;
-        
-        /*
-         * OPERATORE TERNARIO
-         *      continua = (risposta == 's') ? 1 : 0;
-         *      variabile = (condizione) ? vero : falso;
-         * continua = 1 se risposta è uguale a 's' altrimenti sarà 0. 
-         */
         
         if (risposta == 's') {
             printf("Inserisci il nodo di partenza dell'arco. \n");
