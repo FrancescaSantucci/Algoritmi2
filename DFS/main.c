@@ -10,7 +10,7 @@ typedef elemento *link;
 
 link * creaLista(int);
 void creaAdiacenti(link *, int);
-void aggiungiAdj(link *, int, int);
+void aggiungiAdiacenza(link *, int, int);
 void stampaLista(link *, int);
 _Bool verificaAdiacente(link *, int, int);
 
@@ -93,8 +93,8 @@ void creaAdiacenti(link *A, int dim) {
                 printf("Errore: l'arco gia' esiste. \n ");
                 continue;
             } else {
-                aggiungiAdj(A, u, v);
-                aggiungiAdj(A, v, u);
+                aggiungiAdiacenza(A, u, v);
+                aggiungiAdiacenza(A, v, u);
             }
 
         }
@@ -114,7 +114,7 @@ _Bool verificaAdiacente(link *A, int u, int v) {
     return 1;
 }
 
-void aggiungiAdj(link *A, int u, int v) {
+void aggiungiAdiacenza(link *A, int u, int v) {
     link nodoCorrente = A[u];
 
     while (nodoCorrente->adiacenti != NULL)
